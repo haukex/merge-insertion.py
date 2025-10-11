@@ -52,9 +52,9 @@ alias of TypeVar(‘T’)
 
 ### merge_insertion.Comparator
 
-A user-supplied function to compare two items.
+A user-supplied async function to compare two items.
 The argument is a tuple of the two items to be compared; they must not be equal.
-Must return a Promise resolving to 0 if the first item is ranked higher, or 1 if the second item is ranked higher.
+Must return 0 if the first item is ranked higher, or 1 if the second item is ranked higher.
 
 <a id="merge_insertion.merge_insertion_sort"></a>
 

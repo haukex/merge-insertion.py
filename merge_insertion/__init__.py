@@ -101,9 +101,9 @@ def _make_groups(array :Sequence[T]) -> Sequence[tuple[int, T]]:
         i += size
     return rv
 
-#: A user-supplied function to compare two items.
+#: A user-supplied async function to compare two items.
 #: The argument is a tuple of the two items to be compared; they must not be equal.
-#: Must return a Promise resolving to 0 if the first item is ranked higher, or 1 if the second item is ranked higher.
+#: Must return 0 if the first item is ranked higher, or 1 if the second item is ranked higher.
 Comparator = Callable[[tuple[T, T]], Awaitable[Literal[0, 1]]]
 
 async def _bin_insert_index(array :Sequence[T], item :T, comp :Comparator) -> int:
