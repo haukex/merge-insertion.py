@@ -1,0 +1,15 @@
+# https://bit.ly/cffinit
+cff-version: 1.2.0
+title: Merge-Insertion Sort a.k.a. Ford-Johnson Algorithm
+message: If you use this software, please cite it using the metadata from this file.
+type: software
+authors:
+  - given-names: Hauke
+    family-names: Dämpfling
+    email: haukex@zero-g.net
+repository-code: 'https://github.com/haukex/merge-insertion.py'
+abstract: >-
+  The merge-insertion sort (aka the Ford-Johnson algorithm)
+  is optimized for using few comparisons. This implementation
+  in Python allows the user to provide an async comparator.
+license: ISC

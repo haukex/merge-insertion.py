@@ -1,0 +1,1 @@
+.. automodule:: merge_insertion

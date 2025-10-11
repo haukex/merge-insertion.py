@@ -1,0 +1,6 @@
+tomli == 2.3.0
+# Sphinx 8.2.0 dropped support for Python 3.10; 8.0.0 dropped support for 3.9
+sphinx >= 8.1.0, < 8.2.0 ; python_version < "3.11"
+sphinx >= 8.2.3 ; python_version >= "3.11"
+sphinx-markdown-builder == 0.6.8
+types-docutils == 0.22.2.20251006
