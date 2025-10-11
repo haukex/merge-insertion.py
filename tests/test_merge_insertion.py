@@ -30,6 +30,10 @@ import merge_insertion as uut
 async def _comp(ab :tuple[str,str]) -> Literal[0,1]:
     return 0 if ab[0] > ab[1] else 1
 
+class AlwaysEqual:
+    def __eq__(self, other):
+        return isinstance(other, AlwaysEqual)
+
 class TestMergeInsertionSort(unittest.IsolatedAsyncioTestCase):
 
     def _test_comp(self, comp :uut.Comparator, max_calls :int, log :Optional[list[tuple[uut.T,uut.T]]] = None) -> uut.Comparator:
@@ -114,6 +118,16 @@ class TestMergeInsertionSort(unittest.IsolatedAsyncioTestCase):
         self.assertEqual( await bin_insert_index(a[:7], 'A', self._test_comp(_comp,3)), 0 )
         self.assertEqual( await bin_insert_index(a[:7], 'G', self._test_comp(_comp,3)), 3 )
         self.assertEqual( await bin_insert_index(a[:7], 'O', self._test_comp(_comp,3)), 7 )
+
+    def test_ident_find(self):
+        ident_find = uut._ident_find  # pyright: ignore[reportPrivateUsage]  # pylint: disable=protected-access
+        o = AlwaysEqual()
+        a = (1, 'foo', AlwaysEqual(), o)
+        self.assertEqual( a.index(AlwaysEqual()), 2 )
+        self.assertEqual( a.index(o), 2 )
+        self.assertEqual( ident_find(a, o), 3 )
+        with self.assertRaises(IndexError):
+            ident_find(a, AlwaysEqual())
 
     async def test_merge_insertion_sort_detail(self):
         log :list[tuple[str,str]] = []

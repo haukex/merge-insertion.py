@@ -122,6 +122,12 @@ async def _bin_insert_index(array :Sequence[T], item :T, comp :Comparator) -> in
             left = mid + 1
     return left
 
+def _ident_find(array :Sequence[T], item :T) -> int:
+    for i,e in enumerate(array):
+        if e is item:
+            return i
+    raise IndexError(f"failed to find item {item!r} in array")
+
 async def merge_insertion_sort(array :Sequence[T], comparator :Comparator) -> Sequence[T]:
     """Merge-Insertion Sort (Ford-Johnson algorithm) with async comparison.
 
@@ -156,7 +162,7 @@ async def merge_insertion_sort(array :Sequence[T], comparator :Comparator) -> Se
             idx = await _bin_insert_index([ i[0] for i in main_chain ], item, comparator)
         else:
             assert len(pair)==2
-            pair_idx = main_chain.index(pair)
+            pair_idx = _ident_find(main_chain, pair)
             item = pair.pop()
             idx = await _bin_insert_index([ i[0] for i in main_chain[:pair_idx] ], item, comparator)
         main_chain.insert(idx, [item])

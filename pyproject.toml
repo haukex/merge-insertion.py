@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "merge-insertion"
 description = "The merge-insertion sort (aka the Ford-Johnson algorithm) is optimized for using few comparisons."
-version = "1.0.0"
+version = "1.1.0"
 authors = [ { name="Hauke Dämpfling", email="haukex@zero-g.net" } ]
 readme = "README.md"
 requires-python = ">=3.10"
