@@ -131,8 +131,8 @@ def _ident_find(array :Sequence[T], item :T) -> int:
 async def merge_insertion_sort(array :Sequence[T], comparator :Comparator) -> Sequence[T]:
     """Merge-Insertion Sort (Ford-Johnson algorithm) with async comparison.
 
-    :param array: Array of to sort. Duplicate items are not allowed.
-    :param comparator: Async comparison function.
+    :param array: Array to sort. **Duplicate items are not allowed.**
+    :param comparator: Async comparison function as described in :class:`Comparator`.
     :return: A shallow copy of the array sorted in ascending order.
     """
     if len(array)<1:
