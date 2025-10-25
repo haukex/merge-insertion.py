@@ -32,10 +32,15 @@ Please choose 'B' or 'A': B
 **References**
 
 1. Ford, L. R., & Johnson, S. M. (1959). A Tournament Problem.
-   The American Mathematical Monthly, 66(5), 387-389. <[https://doi.org/10.1080/00029890.1959.11989306](https://doi.org/10.1080/00029890.1959.11989306)>
+   The American Mathematical Monthly, 66(5), 387-389. [https://doi.org/10.1080/00029890.1959.11989306](https://doi.org/10.1080/00029890.1959.11989306)
 2. Knuth, D. E. (1998). The Art of Computer Programming: Volume 3: Sorting and Searching (2nd ed.).
-   Addison-Wesley. <[https://cs.stanford.edu/~knuth/taocp.html#vol3](https://cs.stanford.edu/~knuth/taocp.html#vol3)>
-3. <[https://en.wikipedia.org/wiki/Merge-insertion_sort](https://en.wikipedia.org/wiki/Merge-insertion_sort)>
+   Addison-Wesley. [https://cs.stanford.edu/~knuth/taocp.html#vol3](https://cs.stanford.edu/~knuth/taocp.html#vol3)
+3. [https://en.wikipedia.org/wiki/Merge-insertion_sort](https://en.wikipedia.org/wiki/Merge-insertion_sort)
+
+## See Also
+
+* JavaScript / TypeScript version: [https://www.npmjs.com/package/merge-insertion](https://www.npmjs.com/package/merge-insertion)
+* This algorithm in action: [https://haukex.github.io/pairrank/](https://haukex.github.io/pairrank/) (select “Efficient”)
 
 ## API
 
@@ -53,7 +58,7 @@ alias of TypeVar(‘T’)
 ### merge_insertion.Comparator
 
 A user-supplied async function to compare two items.
-The argument is a tuple of the two items to be compared; they must not be equal.
+The single argument is a tuple of the two items to be compared; they must not be equal.
 Must return 0 if the first item is ranked higher, or 1 if the second item is ranked higher.
 
 <a id="merge_insertion.merge_insertion_sort"></a>
@@ -63,8 +68,8 @@ Must return 0 if the first item is ranked higher, or 1 if the second item is ran
 Merge-Insertion Sort (Ford-Johnson algorithm) with async comparison.
 
 * **Parameters:**
-  * **array** – Array of to sort. Duplicate items are not allowed.
-  * **comparator** – Async comparison function.
+  * **array** – Array to sort. **Duplicate items are not allowed.**
+  * **comparator** – Async comparison function as described in [`Comparator`](#merge_insertion.Comparator).
 * **Returns:**
   A shallow copy of the array sorted in ascending order.
 
